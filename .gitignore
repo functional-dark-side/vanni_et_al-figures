@@ -1,0 +1,13 @@
+*.sqlite
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+packrat/lib*/
+packrat/src/
+README.html
+rproj.sh
+data/*
+figures/*
+!data/.gitignore
+!figures/.gitignore
