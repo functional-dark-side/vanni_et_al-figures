@@ -29,6 +29,8 @@ Then let's install the packages we used to plot the figures. First start R to ge
 R
 ```
 
+> If you open the project file `vanni_et_al-figures.Rproj` in Rstudio it will perform the same steps.
+
 If everything went well, [renv](https://rstudio.github.io/renv/articles/renv.html) will be installed and you will get a message like:
 
 ```
@@ -53,5 +55,11 @@ Now you can recreate the basic figures with:
 > Figures will be saved in figures/
 
 Or you can play with the code and recreate the figures in your favorite IDE. 
+
+Once you are done, you can deactivate the conda environment with:
+
+```bash
+conda deactivate
+```
 
 In the folder `figures-manuscipt` you can find the final figures used in the manuscript after some beautifying.
