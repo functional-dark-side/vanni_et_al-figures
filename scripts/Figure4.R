@@ -285,6 +285,6 @@ suppressMessages({
     save_plot(filename = "figures/Fig4-panelsABCD.pdf",  plot = p4, base_width = 14, base_height = 6)
 
     dbDisconnect(con)
-    cat(" done\n\nAll figures saved at figures/\n\n")
+    cat(" done\n\nAll figures saved in figures/\n\n")
   })
 })

@@ -79,6 +79,6 @@ suppressMessages({
 
     save_plot(filename = "figures/Fig2-hq_cl_riboprot.pdf",  plot = r_plot, base_width = 4, base_height = 4)
     dbDisconnect(con)
-    cat(" done\n\nAll figures saved at figures/\n\n")
+    cat(" done\n\nAll figures saved in figures/\n\n")
   })
 })

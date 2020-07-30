@@ -267,7 +267,7 @@ suppressMessages({
 
     save_plot(plot = last_plot(), filename = "figures/Fig5-omrgc_v2_treemap.pdf", base_height = 3, base_width = 3)
     dbDisconnect(con)
-    cat(" done\n\nAll figures saved at figures/\n\n")
+    cat(" done\n\nAll figures saved in figures/\n\n")
   })
 })
 

@@ -654,7 +654,7 @@ suppressMessages({
 
     #ggarrange(p1, p2, common.legend = TRUE) + theme_bw()
     dbDisconnect(con)
-    cat(" done\n\nAll figures saved at figures/\n\n")
+    cat(" done\n\nAll figures saved in figures/\n\n")
 
   })
 })

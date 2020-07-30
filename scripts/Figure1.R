@@ -28,6 +28,6 @@ suppressMessages({
             legend.position = "top")
 
     save_plot(last_plot(), filename = "figures/Fig1-mg_gtdb_shared_kept.pdf", base_width = 5, base_height = 3)
-    cat(" done\n\nAll figures saved at figures/\n\n")
+    cat(" done\n\nAll figures saved in figures/\n\n")
   })
 })

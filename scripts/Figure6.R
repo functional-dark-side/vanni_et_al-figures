@@ -282,6 +282,6 @@ suppressMessages({
 
     cowplot::save_plot(filename = "figures/Fig6-mutant_tree.pdf",  plot = p2, base_width = 8, base_height = 5)
     dbDisconnect(con)
-    cat(" done\n\nAll figures saved at figures/\n\n")
+    cat(" done\n\nAll figures saved in figures/\n\n")
   })
 })
