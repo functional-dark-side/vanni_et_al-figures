@@ -1,4 +1,7 @@
 #!/usr/bin/env Rscript
+
+options( warn = -1 )
+
 library(tidyverse)
 library(tidytree)
 library(ape)
@@ -149,11 +152,11 @@ tau_lv_plot <- ggplot(tD_data_p, aes(cat, mean_depth, fill = cat)) +
   ylab(expression("Mean trait depth ("~tau[D]~")")) +
   xlab("")
 
-tD_all %>% mutate(prand = ifelse(P < 0.05, "Non-random", "Random" )) %>%
-  group_by(cat, prand) %>%
-  count()
+# tD_all %>% mutate(prand = ifelse(P < 0.05, "Non-random", "Random" )) %>%
+#   group_by(cat, prand) %>%
+#   count()
 
-tD_all %>% filter(P < 0.05) # non-randomly distributed 465,148
+#tD_all %>% filter(P < 0.05) # non-randomly distributed 465,148
 
 p4 <- ggarrange(grid::nullGrob(), ggarrange(tau_lv_plot, grid::nullGrob(), ncol = 1, nrow = 2), bac_red_rank_plot, ncol = 3, nrow = 1, widths = c(1, 1.5, 2))
 
