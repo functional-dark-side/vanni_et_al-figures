@@ -11,6 +11,7 @@ library(grid)
 library(purrr)
 library(treemapify)
 library(RSQLite)
+library(scales)
 source("lib/colors.R")
 source("lib/libs.R")
 
@@ -153,16 +154,11 @@ tD_all %>% mutate(prand = ifelse(P < 0.05, "Non-random", "Random" )) %>%
 
 tD_all %>% filter(P < 0.05) # non-randomly distributed 465,148
 
-p4 <- ggarrange(grid::nullGrob(), ggarrange(tau_lv_plot, grid::nullGrob(), ncol = 1, nrow = 2), bac_red_rank, ncol = 3, nrow = 1, widths = c(1, 1.5, 2))
-
+p4 <- ggarrange(grid::nullGrob(), ggarrange(tau_lv_plot, grid::nullGrob(), ncol = 1, nrow = 2), bac_red_rank_plot, ncol = 3, nrow = 1, widths = c(1, 1.5, 2))
 
 save_plot(tau_lv_plot, filename = "figures/Fig5-tau_lv_plot.pdf", base_height = 3.5, base_width = 2.5)
-
 save_plot(plot = p4, filename = "figures/Fig5-gtdb_lineage_mod.pdf", base_height = 5, base_width = 8)
-save_plot(plot = quad_plot, filename = "figures/quad_plot.pdf", base_height = 3, base_width = 5)
-
-save_plot(plot = bac_red_rank, filename = "figures/Fig5-bac_red_rank.pdf", base_height = 6.5, base_width = 8.5)
-
+save_plot(plot = bac_red_rank_plot, filename = "figures/Fig5-bac_red_rank.pdf", base_height = 6.5, base_width = 8.5)
 
 
 # PANEL C -----------------------------------------------------------------
@@ -202,11 +198,31 @@ ggplot(phage_data, aes(area = n, subgroup = is_specific, subgroup2 = has_phage, 
 
 save_plot(plot = last_plot(), filename = "figures/Fig5-phage_treemap.pdf", base_height = 3, base_width = 3)
 
+
+
+# PANEL D -----------------------------------------------------------------
+pal <- wes_palette("Zissou1", 100, type = "continuous")
+quad_plot_data <- gtdb_phylum_stats_mag_n %>%
+  collect() %>%
+  mutate(ncK = kno/(uncl+unk), ncU = unk/(uncl + kno)) %>%
+  mutate(quad = case_when(ncU > 0.31 & ncK < 1.8 ~ "First",
+                          ncU < 0.2 & ncK < 1.5 ~ "Second",
+                          TRUE ~ "Other"),
+         face = ifelse(quad == "Other", 1, 2))
+
+quad_plot <- ggplot(quad_plot_data, aes(x = ncK, y = ncU, size = n_genome, fill = p_mag, label = phylum)) +
+  geom_point(shape = 21,  color = "black", alpha = 0.9) +
+  scale_fill_gradientn(colours = pal, name = "Percentage of MAGs") +
+  scale_size_continuous(range = c(1.3,6), trans = "log10", name="Number of genomes") +
+  guides(fill = guide_colourbar(nbin = 300, raster = FALSE, barwidth = 0.8, barheight = 5, ticks.colour = "black", frame.colour = "black")) +
+  xlab("[ Known ] / [ NC + Unknown ]") +
+  ylab("[ Unknown ] / [ NC + Known ]")
+
+save_plot(plot = quad_plot, filename = "figures/Fig5-quad_plot.pdf", base_height = 3, base_width = 5)
+
 dbDisconnect(con)
 
-
 # PANEL E -----------------------------------------------------------------
-
 db <- "data/Fig5-omrgc.sqlite"
 
 con <- RSQLite::dbConnect(RSQLite::SQLite(), db)
