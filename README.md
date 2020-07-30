@@ -20,7 +20,7 @@ Then get the data we used from [here](https://doi.org/10.6084/m9.figshare.127384
 
 ```bash
 curl -JLO https://ndownloader.figshare.com/files/24109856
-tar cvfz 
+tar xvfz vanni_et_al-data.tar.gz
 ```
 
 Then let's install the packages we used to plot the figures. First start R to get renv installed:
