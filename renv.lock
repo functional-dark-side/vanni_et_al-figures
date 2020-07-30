@@ -397,6 +397,13 @@
       "Repository": "CRAN",
       "Hash": "4ded8b439797f7b1693bd3d238d0106b"
     },
+    "ggplotify": {
+      "Package": "ggplotify",
+      "Version": "0.0.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "01f6ad9ce2c4a474974dac7482e4c19f"
+    },
     "ggpubr": {
       "Package": "ggpubr",
       "Version": "0.4.0",
@@ -476,6 +483,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "7d7f283939f563670a697165b2cf5560"
+    },
+    "gridGraphics": {
+      "Package": "gridGraphics",
+      "Version": "0.5-0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "83c2c0812de7b6e04c2ff471b4d7f920"
     },
     "gtable": {
       "Package": "gtable",
