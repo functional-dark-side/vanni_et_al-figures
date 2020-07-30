@@ -16,7 +16,7 @@ git clone https://github.com/functional-dark-side/vanni_et_al-figures.git
 cd vanni_et_al-figures
 ```
 
-Then get the data we used from [here](https://doi.org/10.6084/m9.figshare.12738476.v1). The data is stored in [SQlite](https://www.sqlite.org/index.html) dbs, onde DB for each figure.
+Then get the data we used from [here](https://doi.org/10.6084/m9.figshare.12738476.v1). The data is stored in [SQlite](https://www.sqlite.org/index.html) dbs, one DB for each figure.
 
 ```bash
 curl -JLO https://ndownloader.figshare.com/files/24109856
