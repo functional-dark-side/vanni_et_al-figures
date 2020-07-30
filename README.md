@@ -1,13 +1,9 @@
 # vanni_et_al-figures
 Code for the figures included in the manuscript [*Light into the darkness: Unifying the known and unknown coding sequence space in microbiome analyses*](https://www.biorxiv.org/content/10.1101/2020.06.30.180448v1)
 
-To recreate the figures you can do as follow if you have a conda installation:
+To recreate the figures follow the instructions below:
 
-```bash
-conda create -n vanni_et_al-figures
-conda activate vanni_et_al-figures
-conda install r=4.0 pkgconfig
-```
+> This has been tested on R 3.6.3
 
 Clone the repo with:
 
