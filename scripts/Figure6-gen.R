@@ -7,8 +7,6 @@ library(data.table)
 library(maditr)
 library(tidyverse)
 
-unixtools::set.tempdir(path.expand("/vol/cloud/SANDBOX/tmp"))
-
 lo_env <- new.env()
 
 setDTthreads(28)
