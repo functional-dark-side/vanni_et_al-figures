@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 # Code for Figure 3 panel in Vanni et al.
 
 library(ggthemr)

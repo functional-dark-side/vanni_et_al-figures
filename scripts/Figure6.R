@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 # Phenotype mutant analisys -----------------------------------------------
 library(tidyverse)
 library(gggenes)

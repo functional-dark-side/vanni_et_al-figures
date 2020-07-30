@@ -1,4 +1,4 @@
-
+#!/usr/bin/env Rscript
 # To generate basic data for the figure -----------------------------------
 
 library(tidyverse)

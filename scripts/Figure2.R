@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 # Code for Figure 2 panel in Vanni et al.
 
 # Alluvial plot for the PR results
