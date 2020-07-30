@@ -12,7 +12,7 @@ source("lib/libs.R")
 source("lib/colors.R")
 # Panel A -----------------------------------------------------------------
 
-db <- "data/Fig2.sqlite"
+db <- "data/Fig3.sqlite"
 
 con <- RSQLite::dbConnect(RSQLite::SQLite(), db)
 

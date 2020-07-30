@@ -9,7 +9,7 @@ library(cowplot)
 library(ggthemr)
 library(RSQLite)
 
-db <- "data/Fig1.sqlite"
+db <- "data/Fig2.sqlite"
 
 con <- RSQLite::dbConnect(RSQLite::SQLite(), db)
 
