@@ -52,10 +52,4 @@ Now you can recreate the basic figures with:
 
 Or you can play with the code and recreate the figures in your favorite IDE. 
 
-Once you are done, you can deactivate the conda environment with:
-
-```bash
-conda deactivate
-```
-
 In the folder `figures-manuscipt` you can find the final figures used in the manuscript after some beautifying.
