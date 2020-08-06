@@ -14,12 +14,11 @@ suppressMessages({
 
     fig_num <- 3
 
+    db <- "data/Fig3.sqlite"
+    con <- RSQLite::dbConnect(RSQLite::SQLite(), db)
+
     # Panel A -----------------------------------------------------------------
     cat(paste0("Creating Fig ", fig_num, " - Panel A..."))
-
-    db <- "data/Fig3.sqlite"
-
-    con <- RSQLite::dbConnect(RSQLite::SQLite(), db)
 
     # Samples used for the paper
     samples_list <- tbl(con, "samples_list") %>% collect()
@@ -107,8 +106,26 @@ suppressMessages({
 
     cat(" done\n")
 
-    # Panel B -----------------------------------------------------------------
+    # Panel C -----------------------------------------------------------------
     cat(paste0("Creating Fig ", fig_num, " - Panel B..."))
+
+    # Treemaps with the aa covered by Pfams in the whole dataset
+    pfam_aa_coverage_all <- tbl(con, "pfam_aa_coverage_all") %>%
+      collect()
+    pfam_aa_coverage_mg <- tbl(con, "pfam_aa_coverage_mg") %>%
+      collect()
+    pfam_aa_coverage_gtdb <- tbl(con, "pfam_aa_coverage_gtdb") %>%
+      collect()
+
+    pfam_aa_treemap_all <- plot_treemap_aa(pfam_aa_coverage_all)
+    pfam_aa_treemap_mg <- plot_treemap_aa(pfam_aa_coverage_mg)
+    pfam_aa_treemap_gtdb <- plot_treemap_aa(pfam_aa_coverage_gtdb)
+
+    pfam_aa_treemap <- ggarrange(pfam_aa_treemap_all, pfam_aa_treemap_mg, pfam_aa_treemap_gtdb, nrow = 1, legend = "none", align = "hv")
+    save_plot(plot = pfam_aa_treemap, filename = "figures/Fig3-pfam_aa_coverage_treemap.pdf", base_height = 3, base_width = 9)
+
+    # Panel C -----------------------------------------------------------------
+    cat(paste0("Creating Fig ", fig_num, " - Panel C..."))
 
     # Collector curves for metagenomic data. Overall curves
     # Without singletons

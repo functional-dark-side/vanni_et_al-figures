@@ -39,6 +39,10 @@ names(gene_colors) <- c("gu_c_12103", "30S ribosomal protein S6", "30S ribosomal
 cls_colors <- c("#E85A5B", "#9BC53D", "#5BC0EB", "#FDE74C", "#FA7921")
 names(cls_colors) <- c("19737823", "33926928", "30027162", "30592801", "37803210")
 
+# Colors for the Pfam aa coverage treemaps
+pfam_aa_coverage_colors <- c("#40B0A6", "#E1BE6A")
+names(pfam_aa_coverage_colors) <- c("pfam_covered_aa", "pfam_not_covered_aa")
+
 
 
 
