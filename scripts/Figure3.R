@@ -9,6 +9,8 @@ suppressMessages({
     library(cowplot)
     library(ggpubr)
     library(scales)
+    library(treemapify)
+    library(hrbrthemes)
     source("lib/libs.R")
     source("lib/colors.R")
 
@@ -39,7 +41,6 @@ suppressMessages({
     gos_cdata <- tbl(con, "gos_cdata") %>%
       collect()
 
-
     mg_data_filt_by_sample <- tbl(con, "mg_data_filt_by_sample") %>%
       collect()
 
@@ -59,7 +60,7 @@ suppressMessages({
       ungroup() %>%
       mutate(p_n_genes = (n_genes/t_n_genes),
              p_abund = (abund/t_abund)) %>%
-      mutate(categ = fct_relevel(categ, color_cats_order_long),
+      mutate(categ = fct_relevel(categ, color_cats_order_long[color_cats_order_long %in% .$categ]),
              biome = fct_relevel(biome, c("Marine", "Human"))) %>%
       ggplot(aes(biome, p_n_genes, fill = categ)) +
       geom_col() +
@@ -90,7 +91,7 @@ suppressMessages({
 
     prop_categs_gtdb_plot <- gtdb_props %>%
       mutate(domain = fct_relevel(domain, c("Bacteria", "Archaea")),
-             categ = fct_relevel(categ, color_cats_order)) %>%
+             categ = fct_relevel(categ, color_cats_order[color_cats_order %in% .$categ])) %>%
       ggplot(aes(domain, prop, fill = categ)) +
       geom_col() +
       ggpubr::rotate() +
@@ -116,6 +117,10 @@ suppressMessages({
       collect()
     pfam_aa_coverage_gtdb <- tbl(con, "pfam_aa_coverage_gtdb") %>%
       collect()
+
+    pfam_aa_stats_all <-  get_stats_aa(pfam_aa_coverage_all)
+    pfam_aa_stats_mg <-  get_stats_aa(pfam_aa_coverage_mg)
+    pfam_aa_stats_gtdb <-  get_stats_aa(pfam_aa_coverage_gtdb)
 
     pfam_aa_treemap_all <- plot_treemap_aa(pfam_aa_coverage_all)
     pfam_aa_treemap_mg <- plot_treemap_aa(pfam_aa_coverage_mg)
