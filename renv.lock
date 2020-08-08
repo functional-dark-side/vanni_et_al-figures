@@ -96,6 +96,13 @@
       "Repository": "CRAN",
       "Hash": "c6faf038ba4346b1de19ad7c99b8f94a"
     },
+    "Rttf2pt1": {
+      "Package": "Rttf2pt1",
+      "Version": "1.3.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "8c4137a9ab70de4787d57758f8190617"
+    },
     "SparseM": {
       "Package": "SparseM",
       "Version": "1.78",
@@ -334,6 +341,20 @@
       "Repository": "CRAN",
       "Hash": "ec8ca05cffcc70569eaaad8469d2a3a7"
     },
+    "extrafont": {
+      "Package": "extrafont",
+      "Version": "0.17",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "7f2f50e8f998a4bea4b04650fc4f2ca8"
+    },
+    "extrafontdb": {
+      "Package": "extrafontdb",
+      "Version": "1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a861555ddec7451c653b40e713166c6f"
+    },
     "fansi": {
       "Package": "fansi",
       "Version": "0.4.1",
@@ -368,6 +389,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "44594a07a42e5f91fac9f93fda6d0109"
+    },
+    "gdtools": {
+      "Package": "gdtools",
+      "Version": "0.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "38f4026c0d09edb3a4474685cef68342"
     },
     "generics": {
       "Package": "generics",
@@ -483,9 +511,9 @@
       "RemoteUsername": "YuLab-SMU",
       "RemoteRepo": "ggtree",
       "RemoteRef": "master",
-      "RemoteSha": "764fb630dc23fb7c2ffd56ea16630bbfb9c8fcbc",
+      "RemoteSha": "2f69e3574a83d926b35c5fe51122e72332cd2e84",
       "RemoteHost": "api.github.com",
-      "Hash": "4e6fc7ad9fbeef84b9afa5b47979a41d"
+      "Hash": "f82721ee31eb40b7735a7102cab6578f"
     },
     "glue": {
       "Package": "glue",
@@ -549,6 +577,18 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "726671f634529d470545f9fd1a9d1869"
+    },
+    "hrbrthemes": {
+      "Package": "hrbrthemes",
+      "Version": "0.8.6",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "hrbrmstr",
+      "RemoteRepo": "hrbrthemes",
+      "RemoteRef": "master",
+      "RemoteSha": "1cc6080fb76f50c14b01b0d663ad039dd5ef1b53",
+      "Hash": "54a775fb96d64abdb309887b884851ca"
     },
     "htmltools": {
       "Package": "htmltools",
@@ -1071,6 +1111,13 @@
       "Repository": "CRAN",
       "Hash": "b227d13e29222b4574486cfcbde077fa"
     },
+    "systemfonts": {
+      "Package": "systemfonts",
+      "Version": "0.2.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "86e3c704ca4e498330d0d8730b437a4d"
+    },
     "testthat": {
       "Package": "testthat",
       "Version": "2.3.2",
@@ -1141,10 +1188,15 @@
     },
     "treemapify": {
       "Package": "treemapify",
-      "Version": "2.5.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "1394a8f67dd47f10cb74fd6516bb36d8"
+      "Version": "2.5.3.9003",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "wilkox",
+      "RemoteRepo": "treemapify",
+      "RemoteRef": "master",
+      "RemoteSha": "45eb2b43c645f5614e4fe8333fb6d46b607062db",
+      "Hash": "05dabf9eb99f4f2477238b88fe09f60a"
     },
     "tweenr": {
       "Package": "tweenr",
