@@ -13,6 +13,50 @@ calc_bin_width <- function(x, ...)
   (rangex[2] - rangex[1]) / nclass.all(x, ...)
 }
 
+StatPercentileX <- ggproto("StatPercentileX", Stat,
+                           compute_group = function(data, scales, probs) {
+                             percentiles <- quantile(data$x, probs=probs)
+                             data.frame(xintercept = percentiles)
+                           },
+                           required_aes = c("x")
+)
+
+stat_percentile_x <- function(mapping = NULL, data = NULL, geom = "vline",
+                              position = "identity", na.rm = FALSE,
+                              show.legend = NA, inherit.aes = TRUE, ...) {
+  layer(
+    stat = StatPercentileX, data = data, mapping = mapping, geom = geom,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+}
+
+StatPercentileXLabels <- ggproto("StatPercentileXLabels", Stat,
+                                 compute_group = function(data, scales, probs) {
+                                   percentiles <- quantile(data$x, probs=probs)
+                                   data.frame(x=percentiles, y=Inf,
+                                              label=paste0("p", probs*100, ": ",
+                                                           scales::comma(round(10^percentiles, digits=1))))
+                                 },
+                                 required_aes = c("x")
+)
+
+stat_percentile_xlab <- function(mapping = NULL, data = NULL, geom = "text",
+                                 position = "identity", na.rm = FALSE,
+                                 show.legend = NA, inherit.aes = TRUE, ...) {
+  layer(
+    stat = StatPercentileXLabels, data = data, mapping = mapping, geom = geom,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+}
+
+calc_bin_width <- function(x, ...)
+{
+  rangex <- range(x, na.rm = TRUE)
+  (rangex[2] - rangex[1]) / nclass.all(x, ...)
+}
+
 get_ratio <- function(x = x, y = y, display = 4/3){
   ratio_display <- display
   ratio_values <- ((max(x) - min(x)))/((max(y) - min(y)))
