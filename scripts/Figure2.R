@@ -30,7 +30,7 @@ suppressMessages({
       count() %>%
       mutate(cl_name_agg = ifelse(n > 25 | consensus_superkingdom == "Viruses", cl_name, "Other"),
              comb_tax = paste(cl_name_agg, consensus_superkingdom, sep = "#")) %>%
-      write_tsv("results/PR_alluvial.tsv")
+      write_tsv("results/Fig2-PR_alluvial.tsv")
 
     cat(" done\n")
 
