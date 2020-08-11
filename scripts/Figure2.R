@@ -24,9 +24,11 @@ suppressMessages({
     pr_results <- tbl(con, "pr_results") %>% collect()
 
     pr_results %>%
-      group_by(cl_name) %>%
-      add_count() %>%
-      mutate(cl_name_agg = ifelse(n > 25 || consensus_superkingdom == "Viruses", cl_name, "Other"),
+      select(cl_name, consensus_superkingdom, com, supercluster) %>%
+      mutate(consensus_superkingdom = ifelse(is.na(consensus_superkingdom), "NA", consensus_superkingdom)) %>%
+      group_by(cl_name, consensus_superkingdom, com, supercluster) %>%
+      count() %>%
+      mutate(cl_name_agg = ifelse(n > 25 | consensus_superkingdom == "Viruses", cl_name, "Other"),
              comb_tax = paste(cl_name_agg, consensus_superkingdom, sep = "#")) %>%
       write_tsv("results/PR_alluvial.tsv")
 
